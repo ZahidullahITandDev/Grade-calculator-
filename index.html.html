@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Grade Calculator</title>
+</head>
+<style>
+    body{    
+
+    }
+    h2{
+        color: #f10991;
+  text-align: center;
+  margin-bottom: 0px;
+  
+  
+    }
+    p{
+        color: #1705b9;
+  text-align: center;
+  margin-bottom: 30px;
+  
+  
+    }
+    h3{
+         color: #069be0e0;
+  text-align: center;
+  margin-bottom: 30px;
+  
+    }
+    input {
+  width: 10%;
+  padding: 2px;
+  margin: 8px 0 5px 0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+       
+  
+
+    
+   
+   
+
+</style>
+<body>
+
+    <h2>Student Grade Calculator</h2>
+<p>
+    <label>Student Name:</label>
+    <input type="text" id="name"><br><br>
+
+    <label>Subject 1 Marks:</label>
+    <input type="number" id="sub1"><br><br>
+
+    <label>Subject 2 Marks:</label>
+    <input type="number" id="sub2"><br><br>
+
+    <label>Subject 3 Marks:</label>
+    <input type="number" id="sub3"><br><br>
+    <label>Subject 4 Marks:</label>
+    <input type="number" id="sub4"><br><br>
+    <label>Subject 5 Marks:</label>
+    <input type="number" id="sub5"><br><br>
+
+    <button onclick="calculateGrade()">Calculate</button>
+</p>
+    <h3 id="result"></h3>
+
+    <script>
+        function calculateGrade() {
+
+            let name = document.getElementById("name").value;
+
+            let sub1 = Number(document.getElementById("sub1").value);
+            let sub2 = Number(document.getElementById("sub2").value);
+            let sub3 = Number(document.getElementById("sub3").value);
+            let sub4 = Number(document.getElementById("sub4").value);
+            let sub5 = Number(document.getElementById("sub5").value);
+
+            let total = sub1 + sub2 + sub3 + sub4 + sub5;
+            let average = total / 5;
+
+            let grade = "";
+
+            if (average >= 80) {
+                grade = "A";
+            }
+            else if (average >= 70) {
+                grade = "B";
+            }
+            else if (average >= 60) {
+                grade = "C";
+            }
+            else if (average >= 50) {
+                grade = "D";
+            }
+            else {
+                grade = "F";
+            }
+
+            let status = average >= 50 ? "Pass" : "Fail";
+
+            document.getElementById("result").innerHTML =
+                "Student: " + name + "<br>" +
+                "Total: " + total + "<br>" +
+                "Average: " + average.toFixed(2) + "<br>" +
+                "Grade: " + grade + "<br>" +
+                "Status: " + status;
+        }
+    </script>
+
+</body>
+</html>
